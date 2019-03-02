@@ -1,27 +1,15 @@
-import assert from './../assert';
+import { validateArgs, initializeCache } from './utils';
 
-function validateArgs(func, keyFormatter){
-  assert(func).is('function');
-  assert(keyFormatter).isOptional('function');
-}
-
-function initializeCache(func) {
-  if(!func.cache) {
-    func.cache = {};
-  }
-}
-
-function memoization(func, cacheKeyFormatter) {
+function memoization(func, cacheKeyFormatter = JSON.stringify) {
 
   validateArgs(func, cacheKeyFormatter);
   initializeCache(func);
 
   return function () {
-    const keyFormatterFunc = cacheKeyFormatter || JSON.stringify;
-    let argsKey = keyFormatterFunc(arguments);
+    let argsKey = cacheKeyFormatter(arguments);
 
     if(func.cache.hasOwnProperty(argsKey)){
-      console.log('from cache')
+      console.info('getting result from cache');
       return func.cache[ argsKey ];
     }
 

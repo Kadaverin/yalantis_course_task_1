@@ -1,6 +1,28 @@
 import memoization from './modules/memoization';
+import { addAll, multiplyAll } from './modules/math';
 
-const sum = (a, b) => a + b;
+let res;
+const memoizedAddAll = memoization(addAll);
+const memoizedMultiplyAll = memoization(multiplyAll);
 
-console.log(memoization(sum)(1,2))
-console.log(memoization(sum)(1,2))
+res = memoizedAddAll(1,2);
+console.log(res);
+
+res = memoizedAddAll(1,2);
+console.log(res);
+console.log('_______________________________________________');
+
+res = memoizedAddAll(1, 2, 3, 4);
+console.log(res);
+
+res = memoizedAddAll(1, 2, 3, 4);
+console.log(res);
+console.log('_______________________________________________');
+
+res = memoizedMultiplyAll(1, 2, 3, 4);
+console.log(res);
+
+res = memoizedMultiplyAll(1, 2, 3, 4);
+console.log(res);
+
+
