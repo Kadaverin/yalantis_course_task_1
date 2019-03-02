@@ -1,0 +1,1 @@
+export { Warrior } from './Warrior';
