@@ -1,7 +1,11 @@
+import assert from './../../assert';
 import { randomInteger } from './../Utils/attack';
+
 
 export class Warrior {
   constructor(name, hp, attackType) {
+    this._validate(name, hp, attackType);
+
     this.hp = hp;
     this.name = name;
     this.attackType = attackType;
@@ -9,10 +13,6 @@ export class Warrior {
 
   get isDead() {
     return this.hp <= 0;
-  }
-
-  greeting() {
-    console.log(`Helo, I'm ${ this.name }`);
   }
 
   isAttackBlocked() {
@@ -35,13 +35,25 @@ export class Warrior {
   }
 
   attack(target){
-    console.log(`${ this } attacks ${ target.name }`);
+    console.log(`${ this } attacks ${ target.name } with ${ this.attackType }`);
 
     const points = this.generateDamagePoints();
     target.receiveDamage(points);
   }
 
   toString() {
-    return `${ this.name }`
+    return `${ this.name }`;
+  }
+
+  _generateErrorMsgFormatter(argumentNumber) {
+    return (expectedType, receivedType) => (
+      `Expected ${ expectedType } for argument ${ argumentNumber }, received: ${ receivedType }`
+    );
+  } 
+
+  _validate(name, hp, attack) {
+    assert(name).is('string', this._generateErrorMsgFormatter(1));
+    assert(hp).is('number', this._generateErrorMsgFormatter(2));
+    assert(attack).is('string', this._generateErrorMsgFormatter(3));
   }
 }

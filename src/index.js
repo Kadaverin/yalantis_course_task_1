@@ -34,5 +34,5 @@ const gladiator = new Gladiator('Ben', 30, 'Blade');
 const game = new Game(gladiator, monster);
 game.play();
 
-console.log(`Winner: ${ game.winner }`)
+console.log(`%c Winner: ${ game.winner }`, 'color: teal; font-weight: bold');
 
