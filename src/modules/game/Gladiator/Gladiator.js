@@ -1,7 +1,11 @@
 import { Warrior } from './../Warrior';
 
 export class Gladiator extends Warrior {
-  constructor(name, hp, attackType){
-    super(name, hp, attackType);
+  isAttackBlocked() {
+    return Math.random() >= 0.4;
+  }
+
+  toString(){
+    return `Gladiator ${ this.name }`
   }
 }

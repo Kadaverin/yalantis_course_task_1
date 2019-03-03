@@ -1,7 +1,4 @@
 export function randomInteger(min, max) {
-  var rand = min + Math.random() * (max + 1 - min);
-  rand = Math.floor(rand);
-  return rand;
+  const rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
 }
-
-export const getattackAmount = randomInteger(1, 10);
