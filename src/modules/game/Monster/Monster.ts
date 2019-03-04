@@ -1,7 +1,10 @@
 import { Warrior } from './../Warrior';
 
 export class Monster extends Warrior {
-  generateDamagePoints() {
+  readonly name: string;
+
+  generateDamagePoints(): number {
+    
     let points = super.generateDamagePoints();
 
     const isAngryHit = Math.random() >= 0.6;
@@ -14,7 +17,7 @@ export class Monster extends Warrior {
     return points;
   }
 
-  toString(){
-    return `Monster ${ this.name }`
+  toString(): string {
+    return `Monster ${ this.name }`;
   }
 }

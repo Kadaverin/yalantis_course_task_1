@@ -1,11 +1,17 @@
-export class Game {
-  constructor(warriorA, warriorB) {
+import { IGame } from './IGame';
+import { IWarrior } from './../Warrior';
+
+export class Game implements IGame {
+  warriorA : IWarrior;
+  warriorB : IWarrior;
+  winner : IWarrior = null;
+
+  constructor(warriorA: IWarrior, warriorB: IWarrior) {
     this.warriorA = warriorA;
     this.warriorB = warriorB;
-    this.winner = null;
   }
 
-  play() {
+  play(): void {
     console.log(`%c ${ this.warriorA } vs ${ this.warriorB } \n`, 'font-weight: bold');
     
     while(true) {

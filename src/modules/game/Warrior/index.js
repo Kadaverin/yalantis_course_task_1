@@ -1,1 +1,0 @@
-export { Warrior } from './Warrior';

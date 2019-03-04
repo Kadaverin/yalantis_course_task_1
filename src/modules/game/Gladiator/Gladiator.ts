@@ -1,11 +1,13 @@
 import { Warrior } from './../Warrior';
 
 export class Gladiator extends Warrior {
-  isAttackBlocked() {
+  readonly name: string
+   
+  isAttackBlocked(): boolean {
     return Math.random() >= 0.4;
   }
 
-  toString(){
+  toString(): string {
     return `Gladiator ${ this.name }`
   }
 }

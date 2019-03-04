@@ -3,10 +3,18 @@ module.exports = {
   output: {
       filename: './bundle.js'
   },
+ 
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-    }]
-  }
+    rules: [
+      {
+        test: /\.tsx?$|\.js$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      }
+    ],
+  },
+
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ]
+  },
 };
