@@ -11,7 +11,7 @@ export class Warrior implements IWarrior {
   hp: number;
   readonly name: string;
   readonly attackType: string;
-  protected logger?: IWarriorFightLogger
+  protected logger: IWarriorFightLogger;
   
 
   constructor(
@@ -42,7 +42,7 @@ export class Warrior implements IWarrior {
       return;
     }
 
-    this.logger && this.logger.logDamage(this.toString(), points)
+    this.logger && this.logger.logDamage(this.toString(), points);
    
     this.hp -= points;
   }
@@ -67,7 +67,6 @@ export class Warrior implements IWarrior {
       `Expected ${ expectedType } for argument ${ argumentNumber }, received: ${ receivedType }`
     );
   } 
-
 
   private validate(name: string, hp: number, attack: string) {
     assert(name).is('string', this.generateErrorMsgFormatter(1));

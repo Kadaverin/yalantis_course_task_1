@@ -4,5 +4,5 @@ export interface IGame {
   warriorA: IWarrior;
   warriorB: IWarrior;
   winner: IWarrior;
-  play() : void;
-}
+  play(): void;
+};

@@ -2,11 +2,11 @@ import { isExists } from './predicates';
 
 function assert(target) {
   return ({
-    defaultErrorMsgFormatter: (expectedType, receivedType) => {
+    defaultErrorMsgFormatter(expectedType, receivedType) {
       return `Expected ${ expectedType }, received: ${ receivedType }`;
     },
 
-    is: function (type, errorFormatter = this.defaultErrorMsgFormatter) {
+    is(type, errorFormatter = this.defaultErrorMsgFormatter) {
       const actualType = typeof target;
 
       if(actualType !== type) {
@@ -15,7 +15,7 @@ function assert(target) {
       }
     },
 
-    isOptional: function(type, errorFormatter) {
+    isOptional(type, errorFormatter) {
       isExists(target) && this.is(type, errorFormatter);
     },
 

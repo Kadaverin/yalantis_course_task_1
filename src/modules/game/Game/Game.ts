@@ -2,9 +2,9 @@ import { IGame } from './IGame';
 import { IWarrior } from './../Warrior';
 
 export class Game implements IGame {
-  warriorA : IWarrior;
-  warriorB : IWarrior;
-  winner : IWarrior = null;
+  warriorA: IWarrior;
+  warriorB: IWarrior;
+  winner: IWarrior = null;
 
   constructor(warriorA: IWarrior, warriorB: IWarrior) {
     this.warriorA = warriorA;
