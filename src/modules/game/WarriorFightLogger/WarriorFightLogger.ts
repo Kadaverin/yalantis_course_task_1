@@ -10,6 +10,6 @@ export class WarriorFightLogger implements IWarriorFightLogger {
   }
 
   logDamage(target: string, points: number): void {
-    console.log(`%c ${ target } has damaged by ${ points } points`, 'color: red')
+    console.log(`%c ${ target } has damaged by ${ points } points`, 'color: red');
   }
-}
+};

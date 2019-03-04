@@ -9,12 +9,17 @@ type ErrorFormatterFunc = (expectedType: string, receivedType: string) => string
 
 export class Warrior implements IWarrior {
   hp: number;
-  logger: IWarriorFightLogger = new WarriorFightLogger;
   readonly name: string;
   readonly attackType: string;
+  protected logger?: IWarriorFightLogger
   
 
-  constructor(name: string, hp: number, attackType: string, logger?: IWarriorFightLogger) {
+  constructor(
+    name: string,
+    hp: number,
+    attackType: string,
+    logger: IWarriorFightLogger = new WarriorFightLogger()
+  ) {
     this.validate(name, hp, attackType);
 
     this.hp = hp;
